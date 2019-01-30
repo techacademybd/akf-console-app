@@ -14,7 +14,6 @@ def main():
 if __name__ == '__main__':
     
     # Read mouse data and upload in file
-
     # Works independently now
     #helpers.mouse_pos()
     

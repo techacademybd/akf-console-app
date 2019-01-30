@@ -1,7 +1,6 @@
 import subprocess
 import filecmp
 import os
-import glob, time
 from pynput.mouse import Controller
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
