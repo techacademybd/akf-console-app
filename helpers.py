@@ -65,6 +65,25 @@ def mouse_pos():
     f.close()
 
 
+
+
+def compare_files(p1, p2):
+    '''Args:
+    p1: path for user file
+    p2: path for test case file
+
+    Compares two files and gives results
+    '''
+    assert type(p1) is str, "I need a string"
+    assert type(p2) is str, "I need a string"
+    
+    if(filecmp.cmp(p1, p2)):
+        print("Matched! You're awesome")
+    else:
+        print("No match found!")
+        
+
+
 # NEEDS MAJOR FIX
 def test2Paint():
     '''Dont know what it does

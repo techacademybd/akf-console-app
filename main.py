@@ -17,9 +17,13 @@ if __name__ == '__main__':
     # Works independently now
     #helpers.mouse_pos()
     
-    # Get file paths
-    all_file_paths = glob.glob("files/*.txt")
-    print(all_file_paths)
-    # Upload
-    helpers.upload_all(all_file_paths)
-    print("Done! Where's my cookie.")
+    # Get file paths and upload them
+    #all_file_paths = glob.glob("files/*.txt")
+    #print(all_file_paths)
+    #helpers.upload_all(all_file_paths)
+    #print("Done! Where's my cookie.")
+
+    # compare two text files
+    path_1 = "checkers/test.txt"
+    path_2 = "checkers/test_case.txt"
+    helpers.compare_files(path_1, path_2)
