@@ -18,7 +18,7 @@ if __name__ == '__main__':
     '''
     Read mouse data
     '''
-    #helpers.mouse_pos()
+    helpers.mouse_pos()
     '''
     Upload files to drive
     '''   
