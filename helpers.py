@@ -17,6 +17,7 @@ print("Logged in!")
 # ID for destination folder in test email (PyDrive Test in this case)
 dest_id = "1JTXMaXBVZcuBplSF7wYrUvQpBDYYqKmF"
 
+
 def upload_file(path):
     '''Takes input the file path in the directory
     Uploads the file in google drive folder (PyDrive Test)
@@ -51,16 +52,16 @@ def mouse_pos():
         until the function exits
     '''
     f_name = input("Enter file name: ")
-    # rename file
+    # Rename file
     f_name += ".txt"
-    # opens txt file in files directory
-    f= open("files/{}".format(f_name), "w+")
-    # init controller
+    # Opens txt file in files directory
+    f = open("files/{}".format(f_name), "w+")
+    # Init controller
     mouse = Controller()
 
     while(1):
         print( mouse.position )
-        # store location in txt file
+        # Store location in txt file
         f.write("{} \n".format(str(mouse.position)))
     f.close()
 
@@ -77,6 +78,7 @@ def compare_files(p1, p2):
     assert type(p1) is str, "I need a string"
     assert type(p2) is str, "I need a string"
     
+    # Compare the two text files
     if(filecmp.cmp(p1, p2)):
         print("Matched! You're awesome")
     else:
