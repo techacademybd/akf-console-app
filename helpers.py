@@ -1,7 +1,6 @@
 import subprocess
 import filecmp
 import os
-from pynput.mouse import Controller
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
@@ -32,7 +31,7 @@ def upload_file(path):
     # Some sick parsing done here!
     f['title'] = path[6:-4]
     f.Upload()
-
+    #c:\Users\Tashfeen\Desktop\Hasib_TTA\akf-console-appC:\Users\Tashfeen\Desktop\Hasib_TTA\akf-console-appC:\Users\Tashfeen\Desktop\Hasib_TTA\akf-console-appC:\Users\Tashfeen\Desktop\Hasib_TTA\akf-console-appC:\Users\Tashfeen\Desktop\Hasib_TTA\akf-console-app
     # Some info!
     #print('Created file %s with mimeType %s' % (f['title'], f['mimeType']))
 
@@ -45,27 +44,6 @@ def upload_all(paths):
     for path in paths:
         upload_file(path)
     print("Successfully Uploaded!")
-
-
-def mouse_pos():
-    '''Opens a text file and dumps mouse data in it
-        until the function exits
-    '''
-    f_name = input("Enter file name: ")
-    # Rename file
-    f_name += ".txt"
-    # Opens txt file in files directory
-    f = open("files/{}".format(f_name), "w+")
-    # Init controller
-    mouse = Controller()
-
-    while(1):
-        print( mouse.position )
-        # Store location in txt file
-        f.write("{} \n".format(str(mouse.position)))
-    f.close()
-
-
 
 
 def compare_files(p1, p2):
@@ -86,17 +64,19 @@ def compare_files(p1, p2):
         
 
 
-# NEEDS MAJOR FIX
+# FIXED 
 def test2Paint():
     '''Dont know what it does
     '''
-    program = subprocess.call(['kate', 'test.txt'])
+    program = subprocess.call(['notepad', 'checkers/test.txt'])
     
     while(1):
-        if(filecmp.cmp('test.txt', 'test_case.txt')):
+        if(filecmp.cmp('checkers/test.txt', 'checkers/test_case.txt')):
+            print("Compared!")
             break
         else:
             print("No match found!")
-            subprocess.call(['kate', 'test.txt'])
+            subprocess.call(['notepad', 'test.txt'])
 
-    program2 = subprocess.call('inkscape')
+    print("DONE!")
+    program2 = subprocess.call('mspaint.exe')
