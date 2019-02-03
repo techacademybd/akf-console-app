@@ -1,6 +1,7 @@
 import subprocess
 import filecmp
 import os
+import glob
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
@@ -63,14 +64,15 @@ def compare_files(p1, p2):
         print("No match found!")
         
 
-
-# FIXED 
 def test2Paint():
-    '''Dont know what it does
+    '''Opens notepad, if user gives the correct input
+    then gets a reward - opens paint for drawing. During opening
+    paint, the log files are uploaded in drive
     '''
     program = subprocess.call(['notepad', 'checkers/test.txt'])
     
-    while(1):
+    while True:
+
         if(filecmp.cmp('checkers/test.txt', 'checkers/test_case.txt')):
             print("Compared!")
             break
@@ -78,5 +80,9 @@ def test2Paint():
             print("No match found!")
             subprocess.call(['notepad', 'test.txt'])
 
-    print("DONE!")
+    #print("Uploading files to drive....")
+    #all_file_paths = glob.glob("files/*.txt")
+    #upload_all(all_file_paths)
+    
+    print("Opening mspaint...")
     program2 = subprocess.call('mspaint.exe')

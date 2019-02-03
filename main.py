@@ -1,14 +1,18 @@
 import helpers
-import glob
 from threading import Thread
-import Data_Logger
-
+import logger
 
 def main():
-    # Two processes in two threads
-    thread1 = Thread(target=Data_Logger.mouse_pos)
+    '''
+    Run the seperate processes
+        * Collect mouse pointer data
+        * Collect keyboard logs
+        * Run notepad to paint app
+    '''
+    thread1 = Thread(target=logger.mouse_pos)
     thread2 = Thread(target=helpers.test2Paint)
-    thread3 = Thread(target=Data_logger.Keyboard_logger)
+    thread3 = Thread(target=logger.keyboard_logger)
+    
     print("*Starting Mouse Tracking!")
     thread1.start()
     print("@Starting Students Test!")
@@ -16,25 +20,11 @@ def main():
     print("*Starting Keyboard Logging")
     thread3.start()
 
+
 if __name__ == '__main__':
-    
     '''
-    Read mouse data
+    Run notepad and open paint if correct answer given
     '''
-    #helpers.mouse_pos()
-    '''
-    Upload files to drive
-    '''   
-    #all_file_paths = glob.glob("files/*.txt")
-    #helpers.upload_all(all_file_paths)
-    
-    '''
-    Compare two text files
-    '''
-    #path_1 = "checkers/test.txt"
-    #path_2 = "checkers/test_case.txt"
-    #helpers.compare_files(path_1, path_2)
-
-    helpers.test2Paint()
-
+    #helpers.test2Paint()
     #main()
+    #print("Done!")
